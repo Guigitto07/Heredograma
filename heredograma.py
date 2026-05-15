@@ -1,13 +1,20 @@
-Geracoes = int(input("Quantidade de geraçoes :"))
-pessoas = [
-
-]
-quantidadeDePessoas = int(input('Quantidade de pessaos'))
 
 
+pessoas = {
+}
+QGeracoes = int(input("Quantidade de geraçoes :"))
+for i in range(1,QGeracoes + 1):
+    quantidadeDePessoasNaGeracao = int(input(f"Quantas pessoas tem na geração {i}?"))
+    for o in range(1 , quantidadeDePessoasNaGeracao + 1):
+        HorM = input("Homen ou Mulher?:")
+        if HorM == "Homen":
+            pessoas[i] = 'Homen'
+            print(pessoas)
+        else:
+            pessoas[i] = 'Mulher'
+            print(pessoas)
 
-
-
+        
 
 
 
@@ -53,6 +60,6 @@ def primeiraLeideMendel(x,y):
         print("100% Homozigoto recessivo")
 
     
-primeiraLeideMendel("Aa","Aa")
+
 
 
