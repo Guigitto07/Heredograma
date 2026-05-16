@@ -1,20 +1,28 @@
-
-
-pessoas = {
-}
+AlelosH = ""
+AlelosF = ""
+geracoes = []
 QGeracoes = int(input("Quantidade de geraçoes :"))
 for i in range(1,QGeracoes + 1):
+    atual = {}
     quantidadeDePessoasNaGeracao = int(input(f"Quantas pessoas tem na geração {i}?"))
     for o in range(1 , quantidadeDePessoasNaGeracao + 1):
         HorM = input("Homen ou Mulher?:")
         if HorM == "Homen":
-            pessoas[i] = 'Homen'
-            print(pessoas)
+            AlelosH = input("Alelos:")
+            Infectado = input("Esta Infectado:")
+            Homen = {"sexo": "Masculino", "Alelos": AlelosH,"Infectado": Infectado}
+            atual[o] = Homen
         else:
-            pessoas[i] = 'Mulher'
-            print(pessoas)
+            AlelosF = input("Alelos:")
+            Infectado = input("Esta Infectado:")
+            Mulher = {"sexo": "Feminino", "Alelos": AlelosF,"Infectado": Infectado}
+            atual[o] = Mulher
+    geracoes.append(atual)
+homen = ["□","■"]
+mulher = ["○","•"]
+print(geracoes[0])
 
-        
+
 
 
 
@@ -58,7 +66,7 @@ def primeiraLeideMendel(x,y):
         print("50% hterozigoto\n50% Homozigoto recessivo")
     elif soma == 0:
         print("100% Homozigoto recessivo")
-
+primeiraLeideMendel(AlelosF,AlelosH)
     
 
 
