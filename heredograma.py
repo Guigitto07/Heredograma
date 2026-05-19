@@ -1,3 +1,21 @@
+homen = ["□","■"]
+mulher = ["○","•"]
+FGeraçoes = []
+Formatos = []
+CopyFormatos = Formatos.copy
+def desenhar(s,c):
+    if s == "Masculino":
+        if c == "Sim":
+            CopyFormatos.append(homen[1])
+            
+        else:
+            CopyFormatos.append(homen[0])
+    else:
+        if c == "Sim":
+            CopyFormatos.append(mulher[1])
+        else:
+            CopyFormatos.append(mulher[0])
+
 AlelosH = ""
 AlelosF = ""
 geracoes = []
@@ -12,18 +30,20 @@ for i in range(1,QGeracoes + 1):
             Infectado = input("Esta Infectado:")
             Homen = {"sexo": "Masculino", "Alelos": AlelosH,"Infectado": Infectado}
             atual[o] = Homen
+            desenhar(Homen["sexo"],Homen["Infectado"])
         else:
             AlelosF = input("Alelos:")
             Infectado = input("Esta Infectado:")
             Mulher = {"sexo": "Feminino", "Alelos": AlelosF,"Infectado": Infectado}
             atual[o] = Mulher
+            desenhar(Mulher["sexo"],Mulher["Infectado"])
     geracoes.append(atual)
-homen = ["□","■"]
-mulher = ["○","•"]
-print(geracoes[0])
-
-
-
+    Formatos = CopyFormatos
+    FGeraçoes.append(Formatos)
+    CopyFormatos.pop(0)
+    CopyFormatos.pop(0)
+for i in range(0,QGeracoes):
+    print(FGeraçoes[i])
 
 
 def primeiraLeideMendel(x,y):
@@ -66,8 +86,6 @@ def primeiraLeideMendel(x,y):
         print("50% hterozigoto\n50% Homozigoto recessivo")
     elif soma == 0:
         print("100% Homozigoto recessivo")
-primeiraLeideMendel(AlelosF,AlelosH)
-    
 
 
 
