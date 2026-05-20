@@ -1,23 +1,25 @@
-homen = ["□","■"]
-mulher = ["○","•"]
+
 FGeraçoes = []
 Formatos = []
-CopyFormatos = Formatos.copy
+formatosSave = []
+def salvarFormato(desenho , geracao):
+    Formatos
+
+
 def desenhar(s,c):
+    homen = ["□","■"]
+    mulher = ["○","•"]
     if s == "Masculino":
-        if c == "Sim":
-            CopyFormatos.append(homen[1])
+        if c == "S":
+            Formatos.append(homen[1])
             
         else:
-            CopyFormatos.append(homen[0])
+            Formatos.append(homen[0])
     else:
-        if c == "Sim":
-            CopyFormatos.append(mulher[1])
+        if c == "S":
+            Formatos.append(mulher[1])
         else:
-            CopyFormatos.append(mulher[0])
-
-AlelosH = ""
-AlelosF = ""
+            Formatos.append(mulher[0])
 geracoes = []
 QGeracoes = int(input("Quantidade de geraçoes :"))
 for i in range(1,QGeracoes + 1):
@@ -25,7 +27,7 @@ for i in range(1,QGeracoes + 1):
     quantidadeDePessoasNaGeracao = int(input(f"Quantas pessoas tem na geração {i}?"))
     for o in range(1 , quantidadeDePessoasNaGeracao + 1):
         HorM = input("Homen ou Mulher?:")
-        if HorM == "Homen":
+        if HorM == "H":
             AlelosH = input("Alelos:")
             Infectado = input("Esta Infectado:")
             Homen = {"sexo": "Masculino", "Alelos": AlelosH,"Infectado": Infectado}
@@ -38,13 +40,13 @@ for i in range(1,QGeracoes + 1):
             atual[o] = Mulher
             desenhar(Mulher["sexo"],Mulher["Infectado"])
     geracoes.append(atual)
-    Formatos = CopyFormatos
-    FGeraçoes.append(Formatos)
-    CopyFormatos.pop(0)
-    CopyFormatos.pop(0)
-for i in range(0,QGeracoes):
-    print(FGeraçoes[i])
-
+    Formatos.append("//")
+for i in Formatos:
+    if i == "//":
+        print("")
+        print("  |")
+    else:
+        print(i,end="--")
 
 def primeiraLeideMendel(x,y):
     Contador = 0
