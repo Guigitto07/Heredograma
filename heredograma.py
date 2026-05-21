@@ -2,13 +2,13 @@
 Alelos = []
 Formatos = []
 geracoes = []
-def verificacao(a,b,c,d):
+Casais = 0
+def verificacao(a,b,c):
     while True:
         if a == b or a == c:
             break
         else:
-            d
-    
+            a = input(f"Comando Invalido DIgite novamente  {b}/{c} :")   
 def desenhar(s,c):
     homen = ["□","■"]
     mulher = ["○","•"]
@@ -29,21 +29,33 @@ for i in range(1,QGeracoes + 1):
     quantidadeDePessoasNaGeracao = int(input(f"Quantas pessoas tem na geração {i}?"))
     for o in range(1 , quantidadeDePessoasNaGeracao + 1):
         HorM = input("Homen ou Mulher?:")
-        verificacao(HorM,"H","M",HorM = input("Homen ou Mulher?:"))
-        if HorM == "H":
-            AlelosH = input("Alelos:")
-            Alelos.append(AlelosH)
-            Infectado = input("Esta Infectado:")
-            Homen = {"sexo": "Masculino", "Alelos": AlelosH,"Infectado": Infectado}
-            atual[o] = Homen
-            desenhar(Homen["sexo"],Homen["Infectado"])
-        else:
-            AlelosF = input("Alelos:")
-            Alelos.append(AlelosF)
-            Infectado = input("Esta Infectado:")
-            Mulher = {"sexo": "Feminino", "Alelos": AlelosF,"Infectado": Infectado}
-            atual[o] = Mulher
-            desenhar(Mulher["sexo"],Mulher["Infectado"])
+        verificacao(HorM,"H","M")
+        if o >= 2 :
+            casalSN = ("Os dois anteriores são um casal? :")
+            verificacao(casalSN,"S","N")
+            if casalSN == "S":
+                Casais = Casais + 1
+            else:
+                if HorM == "H":
+                    if Casais >= 1:
+                        Filho = "Ele é filho de alguem? se sim de quem?:"
+                    AlelosH = input("Alelos:")
+                    Alelos.append(AlelosH)
+                    Infectado = input("Esta Infectado:")
+                    verificacao(Infectado,"S","N")
+                    Homen = {"sexo": "Masculino", "Alelos": AlelosH,"Infectado": Infectado,"Filho":Filho}
+                    atual[o] = Homen
+                    desenhar(Homen["sexo"],Homen["Infectado"])
+                else:
+                    if Casais >= 1:
+                        Filho = "Ele é filho de alguem? se sim de quem?:"
+                    AlelosF = input("Alelos:")
+                    Alelos.append(AlelosF)
+                    Infectado = input("Esta Infectado:")
+                    verificacao(Infectado,"S","N")
+                    Mulher = {"sexo": "Feminino", "Alelos": AlelosF,"Infectado": Infectado,"Filho":Filho}
+                    atual[o] = Mulher
+                    desenhar(Mulher["sexo"],Mulher["Infectado"])
     geracoes.append(atual)
     Formatos.append("//")
     Alelos.append("//")
