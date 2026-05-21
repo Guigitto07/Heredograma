@@ -1,11 +1,14 @@
 
-FGeraçoes = []
+Alelos = []
 Formatos = []
-formatosSave = []
-def salvarFormato(desenho , geracao):
-    Formatos
-
-
+geracoes = []
+def verificacao(a,b,c,d):
+    while True:
+        if a == b or a == c:
+            break
+        else:
+            d
+    
 def desenhar(s,c):
     homen = ["□","■"]
     mulher = ["○","•"]
@@ -20,34 +23,42 @@ def desenhar(s,c):
             Formatos.append(mulher[1])
         else:
             Formatos.append(mulher[0])
-geracoes = []
 QGeracoes = int(input("Quantidade de geraçoes :"))
 for i in range(1,QGeracoes + 1):
-    atual = {}
+    atual = {} #Variavel de passagem
     quantidadeDePessoasNaGeracao = int(input(f"Quantas pessoas tem na geração {i}?"))
     for o in range(1 , quantidadeDePessoasNaGeracao + 1):
         HorM = input("Homen ou Mulher?:")
+        verificacao(HorM,"H","M",HorM = input("Homen ou Mulher?:"))
         if HorM == "H":
             AlelosH = input("Alelos:")
+            Alelos.append(AlelosH)
             Infectado = input("Esta Infectado:")
             Homen = {"sexo": "Masculino", "Alelos": AlelosH,"Infectado": Infectado}
             atual[o] = Homen
             desenhar(Homen["sexo"],Homen["Infectado"])
         else:
             AlelosF = input("Alelos:")
+            Alelos.append(AlelosF)
             Infectado = input("Esta Infectado:")
             Mulher = {"sexo": "Feminino", "Alelos": AlelosF,"Infectado": Infectado}
             atual[o] = Mulher
             desenhar(Mulher["sexo"],Mulher["Infectado"])
     geracoes.append(atual)
     Formatos.append("//")
-for i in Formatos:
-    if i == "//":
-        print("")
-        print("  |")
+    Alelos.append("//")
+for i in range(0,len(Formatos)):
+    if (Formatos[i] == "//") or (Formatos[i] == "//"):
+        if i == len(Formatos) - 1:
+            print("")
+        else:
+            print("")
+            print("  |")
     else:
-        print(i,end="--")
-
+        if i == len(Formatos) - 2:
+            print(Formatos[i],"(",Alelos[i],")")
+        else:
+            print(Formatos[i],"(",Alelos[i],")",end=" -- ")
 def primeiraLeideMendel(x,y):
     Contador = 0
     #mae/////////////////////////////////////
